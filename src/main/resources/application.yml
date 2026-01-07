@@ -27,6 +27,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+      #uri: http://config-service:8888 (USE THIS FOR DOCKER IMAGE)
       request-connect-timeout: 5000 # 5s
       request-read-timeout: 5000 # 5s
       fail-fast: false # In production, set to true
@@ -36,5 +37,5 @@ spring:
         max-interval: 2000 # 2s
         multiplier: 1.1
 
-polar:
-  catalog-service-uri: "http://localhost:9001"
+#polar:
+  #catalog-service-uri: "http://localhost:9001"
