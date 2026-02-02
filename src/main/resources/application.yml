@@ -23,9 +23,10 @@ spring:
     password: ${spring.r2dbc.password}
     url: jdbc:postgresql://localhost:5432/polardb_order
   config:
-    import: "optional:configserver:"
+    import: "" # When using Config Service, add "optional:configserver:"
   cloud:
     config:
+      enabled: false # When using Config Service, set to true
       uri: http://localhost:8888
       #uri: http://config-service:8888 (USE THIS FOR DOCKER IMAGE)
       request-connect-timeout: 5000 # 5s
@@ -74,7 +75,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: flyway, health, heapdump, info, prometheus
+        include: bindings, configprops, env, flyway, functions, health, heapdump, info, loggers, mappings, prometheus
   endpoint:
     health:
       show-details: always
